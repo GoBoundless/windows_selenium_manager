@@ -45,6 +45,8 @@ def stop_selenium
     to_kill.each do |pid|
       Process.wait(pid) rescue nil
     end
+    sleep 1       # to make sure everything really is stopped (seems necessary even though we do Process.wait)
+
     @selenium_pid = nil
   end
 end
